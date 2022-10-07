@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+        // Function to get computer choise:    
         function getComputerChoise(){
             let posibleChoise = [
                 "Rock",
@@ -19,21 +20,13 @@
             return computerChoise;
         }
 
-        let computerChoise = getComputerChoise();
-        
+        // Function to get players choise:
         function capitalizeFirstLetter(string){
             let capitalized = string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
             return capitalized;
         }
 
-        let playerChoise = prompt("choose Rock, Paper or Scissors");
-        playerChoise = capitalizeFirstLetter(playerChoise);
-
-        
-        let computerScore = 0;
-        let playerScore = 0;
-        let roundResult ="";
-        
+       // Function to play one round:
         function playRound(computerChoise, playerChoise){
 
             
@@ -59,7 +52,20 @@
                     roundResult = "Player";
                 }
 
+                alert(roundResult);
         }
+
+        // Call functions:
+        let computerChoise = getComputerChoise();
+        alert(computerChoise);
+
+        let playerChoise = prompt("choose Rock, Paper or Scissors");
+        playerChoise = capitalizeFirstLetter(playerChoise);
+        
+        
+        let computerScore = 0;
+        let playerScore = 0;
+        let roundResult ="";
 
         playRound(computerChoise, playerChoise);
 
