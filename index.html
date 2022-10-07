@@ -7,8 +7,10 @@
     <title>R-P-S</title>
 </head>
 <body>
-    <script>
-        // Function to get computer choise:    
+   
+   <script>
+        // Function to get computer choise:
+
         function getComputerChoise(){
             let posibleChoise = [
                 "Rock",
@@ -20,18 +22,20 @@
             return computerChoise;
         }
 
+
         // Function to get players choise:
+
         function capitalizeFirstLetter(string){
             let capitalized = string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
             return capitalized;
         }
 
        // Function to play one round:
+
         function playRound(computerChoise, playerChoise){
 
-            
             if(computerChoise === playerChoise){
-                roundResult = "Tie";
+                roundResult = "Tie round";
             }
 
             if(
@@ -39,8 +43,8 @@
                 (computerChoise === "Scissors" && playerChoise == "Paper") ||
                 (computerChoise === "Paper" && playerChoise == "Rock")
                 ){
-                    computerChoise ++;
-                    roundResult = "Computer";
+                    computerScore ++;
+                    roundResult = "Computer won round";
                 }
 
             if(
@@ -49,28 +53,54 @@
                 (playerChoise === "Paper" && computerChoise == "Rock")
                 ){
                     playerScore ++;
-                    roundResult = "Player";
+                    roundResult = "Player won round";
                 }
 
                 alert(roundResult);
         }
 
-        // Call functions:
-        let computerChoise = getComputerChoise();
-        alert(computerChoise);
+        
+        // Play five rounds o until 3 rounds won:
 
-        let playerChoise = prompt("choose Rock, Paper or Scissors");
-        playerChoise = capitalizeFirstLetter(playerChoise);
-        
-        
         let computerScore = 0;
         let playerScore = 0;
         let roundResult ="";
 
-        playRound(computerChoise, playerChoise);
 
+        for (let i = 0; i < 5; i++) {
+            let computerChoise = getComputerChoise();
+            alert(computerChoise);
 
+            let playerChoise = prompt("choose Rock, Paper or Scissors");
+            playerChoise = capitalizeFirstLetter(playerChoise);
 
+            playRound(computerChoise, playerChoise);
+
+            console.log(roundResult);
+            console.log(computerScore);
+            console.log(playerScore);
+
+            if (playerScore === 3){
+                i = 100;
+                alert("player won");
+
+            }
+            
+            if (computerScore === 3){
+                i = 100;
+                alert("Computer won");
+            }
+
+        }
+
+        if (playerScore > computerScore){
+                alert("player won");
+
+            }
+            
+        if (computerScore > playerScore){
+                alert("Computer won");
+            }
 
 
     </script>
