@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-P-S</title>
+</head>
+<body>
+    <script>
+        function getComputerChoise(){
+            let posibleChoise = [
+                "Rock",
+                "Paper",
+                "Scissors"
+            ]
+
+            let computerChoise = posibleChoise[Math.floor(Math.random()*posibleChoise.length)];
+            return computerChoise;
+        }
+
+        let computerChoise = getComputerChoise();
+        
+        function capitalizeFirstLetter(string){
+            let capitalized = string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+            return capitalized;
+        }
+
+        let playerChoise = prompt("choose Rock, Paper or Scissors");
+        playerChoise = capitalizeFirstLetter(playerChoise);
+
+        
+        let computerScore = 0;
+        let playerScore = 0;
+        let roundResult ="";
+        
+        function playRound(computerChoise, playerChoise){
+
+            
+            if(computerChoise === playerChoise){
+                roundResult = "Tie";
+            }
+
+            if(
+                (computerChoise === "Rock" && playerChoise == "Scissors") || 
+                (computerChoise === "Scissors" && playerChoise == "Paper") ||
+                (computerChoise === "Paper" && playerChoise == "Rock")
+                ){
+                    computerChoise ++;
+                    roundResult = "Computer";
+                }
+
+            if(
+                (playerChoise === "Rock" && computerChoise == "Scissors") || 
+                (playerChoise === "Scissors" && computerChoise == "Paper") ||
+                (playerChoise === "Paper" && computerChoise == "Rock")
+                ){
+                    playerScore ++;
+                    roundResult = "Player";
+                }
+
+        }
+
+        playRound(computerChoise, playerChoise);
+
+
+
+
+
+    </script>
+</body>
+</html>
