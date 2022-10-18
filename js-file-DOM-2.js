@@ -15,6 +15,13 @@
     let roundResult = ''
     let computerScore = 0
     let playerScore = 0
+    let result = 'tie'
+    let rounds = 0
+    let j = true
+
+    let scoreTextPlayer = document.querySelector('#scoreTextPlayer')
+    let scoreTextComputer = document.querySelector('#scoreTextComputer')
+    let scores = document.querySelector('#scores')
 
 
     function getComputerChoice(){
@@ -32,6 +39,10 @@
 
 
     function playRound(){
+
+        if(result === 'end'){
+            return console.log('Game already ended bro...')
+        }
 
         if(computerChoice === playerChoice){
             roundResult = "Tie round";
@@ -55,21 +66,60 @@
             roundResult = "Player won round";
         }
 
-        console.log(roundResult);
+        rounds++
+        // console.log(roundResult);
+        // console.log(playerScore);
+        // console.log(computerScore);
+        // console.log('----------------------------------------------------------------');
     }
-
 
 
     function test(e){
         //console.log(e)
         playerChoice = e.target.textContent
         computerChoice = getComputerChoice()
-        console.log("Player choice = " + playerChoice)
-        console.log("Computer choice = " + computerChoice)
+        // console.log("Player choice = " + playerChoice)
+        // console.log("Computer choice = " + computerChoice)
 
         playRound()
 
+        scoreTextPlayer.textContent = 'Player Score: ' + playerScore;
+        scoreTextComputer.textContent = 'Computer Score: ' + computerScore;
+
+        if (playerScore === 3){
+            result = 'player'
+        }
+
+        if (computerScore === 3){
+            result = 'computer'
+        }
+
+        if (result === 'player' || result === 'computer'){
+            //console.log(result)
+            let resultText = document.createElement('h1')
+            //GIVE AN id TO resultText
+            let resultText2 = document.createTextNode(result + ' won!')
+            resultText.appendChild(resultText2)
+            //scores.appendChild(resultText) This is appending multiples elements and don't know why.
+            //scoreTextComputer.appendChild(resultText)
+
+            if(j === true){
+                scores.appendChild(resultText)
+                j = false
+            }
+
+
+            result = 'end'
+
+        }
+
     }
+
+
+
+
+
+
     // Play five rounds o until 3 rounds won:
 
     // let computerScore = 0;
