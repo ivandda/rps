@@ -2,6 +2,7 @@ html{
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
 
     /*background: url(images/background.jpg);*/
     /*background-size: auto;*/
@@ -12,11 +13,11 @@ body{
     flex-direction: column;
     height: 100vh;
     width: 90%;
-    border: 0px;
-    margin: 0px;
+    border: 0;
+    margin: 0;
 
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 #titlesContainer{
@@ -26,15 +27,15 @@ body{
 }
 
 .title{
-    font-size: 100px;
+    font-size: 7vmax;
     text-align: center;
-    margin: 50px 0 0 0;
+    margin: 10px 0 0 0;
 
 
 }
 
 .instructions{
-    font-size: 30px;
+    font-size: 3vmax;
     text-align: center;
     margin: 10px 0 0 0;
 }
@@ -43,22 +44,17 @@ body{
     /*border: 4px solid lightgray;*/
     /*border-radius: 50px;*/
     /*margin: 60px 0 60px 0;*/
-
     flex: initial;
-    height: 30%;
-    width: 60%;
+    /*height: 30%;*/
+    /*width: 70%;*/
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
-
+    justify-content: space-between;
+    margin: 5% 0 5% 0;
 
 }
 
-#scoresContainer{
-    /*border: 1px solid blue;*/
-    flex: initial
-}
 button{
     border: none;
     color: inherit;
@@ -67,41 +63,100 @@ button{
     cursor: pointer;
     outline: none;
     background-color: transparent;
-    margin: 0 40px 0 40px;
-
+    /*margin: 0 40px 0 40px;*/
+    flex: initial;
     display: flex;
+    max-width: 300px;
+    max-height: 300px;
+
+    min-width: 100px;
+    min-height: 100px;
 
 }
 
 img{
-    flex: initial;
+    flex: auto;
     max-width: 100%;
 
 }
 
+
 #scoresContainer{
+    flex: initial;
     font-family: 'Cabin Sketch', cursive;
-    font-size: 30px;
+    font-size: 3vmax;
     text-align: center;
     margin: 5px;
 }
 
+.scoreText{
+    margin: 0;
+}
 #scoreTextResult{
-    font-size: 80px;
-    margin: 30px 10px 10px 10px;
+    font-size: 5vmax;
+    /*margin: 30px 10px 10px 10px;*/
 }
 
-/*#Rock{*/
-/*    background-image: url("/images/rock.png");*/
-/*    background-size: contain;*/
-/*}*/
+button:hover::after {
+    left: 100%;
+}
 
-/*#Paper{*/
-/*    background-image: url("/images/paper.png");*/
-/*    background-size: contain;*/
-/*}*/
+@media (max-width: 800px){
+    body{
+        flex: initial;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 90%;
+        border: 0;
+        margin: 0;
 
-/*#Scissors{*/
-/*    background-image: url("/images/scissors.png");*/
-/*    background-size: contain;*/
-/*}*/
+        align-items: center;
+        justify-content: center;
+    }
+
+    #buttonContainer{
+        flex: initial;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10% 0 10% 0;
+
+
+    }
+
+    button{
+        border: none;
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: pointer;
+        outline: none;
+        background-color: transparent;
+        /*margin: 0 40px 0 40px;*/
+
+        display: flex;
+        flex: initial;
+        max-width: 150px;
+        max-height: 150px;
+        min-width: 50px;
+        min-height: 50px;
+    }
+    #scoresContainer{
+        flex: initial;
+        font-family: 'Cabin Sketch', cursive;
+        font-size: 2vmax;
+        text-align: center;
+        margin: 5px;
+    }
+
+    .scoreText{
+        margin: 0;
+    }
+    #scoreTextResult{
+        font-size: 4vmax;
+        /*margin: 30px 10px 10px 10px;*/
+    }
+}
+

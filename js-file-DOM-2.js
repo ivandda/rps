@@ -25,6 +25,7 @@
     let ComputerChoiceText = document.querySelector('#ComputerChoiceText')
     let scores = document.querySelector('#scores')
 
+    let soundRock = new Audio()
 
     function getComputerChoice(){
         let possibleChoice = ["Rock", "Paper", "Scissors"]
@@ -89,6 +90,7 @@
         playRound()
         scoreTextPlayer.textContent = 'Player Score: ' + playerScore + "⠀⠀";
         scoreTextComputer.textContent = 'Computer Score: ' + computerScore;
+        scoreTextResult.textContent = roundResult
 
         if (playerScore === 3){
             result = 'player'
@@ -99,7 +101,7 @@
         }
 
         if (result === 'player' || result === 'computer'){
-            scoreTextResult.textContent = result + ' won!'
+            scoreTextResult.textContent = result + ' won game!!'
             result = 'end'
             //console.log(result)
             // let resultText = document.createElement('h1')
