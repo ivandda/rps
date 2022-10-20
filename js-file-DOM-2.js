@@ -25,7 +25,13 @@
     let ComputerChoiceText = document.querySelector('#ComputerChoiceText')
     let scores = document.querySelector('#scores')
 
-    let soundRock = new Audio()
+    let soundRock = document.querySelector('#audioRock')
+    let soundPaper = document.querySelector('#audioPaper')
+    let soundScissors = document.querySelector('#audioScissors')
+    let soundRoundLost = document.querySelector('#audioRoundLost')
+    let soundGameLost = document.querySelector('#audioGameLost')
+    let soundGameWon = document.querySelector('#audioGameWon')
+    let soundRoundTie = document.querySelector('#audioRoundTie')
 
     function getComputerChoice(){
         let possibleChoice = ["Rock", "Paper", "Scissors"]
@@ -34,9 +40,11 @@
         return computerChoice;
     }
 
-    for(let i=0; i<button.length; i++){
-        button[i].addEventListener('click',test)
-    }
+
+    for (let i = 0; i < button.length; i++) {
+            button[i].addEventListener('click', play)
+        }
+
 
 
 
@@ -44,7 +52,8 @@
     function playRound(){
 
         if(result === 'end'){
-            return console.log('Game already ended bro...')
+            return;
+            // return console.log('Game already ended bro...')
         }
 
         if(computerChoice === playerChoice){
@@ -74,12 +83,18 @@
         // console.log(playerScore);
         // console.log(computerScore);
         // console.log('----------------------------------------------------------------');
+
+
     }
 
 
-    function test(e){
-        console.log(e)
-        console.log(e.path[0].id)
+    function play(e){
+        if(result === 'end'){
+            return;
+        }
+        //soundRock.play();
+        // console.log(e)
+        // console.log(e.path[0].id)
         playerChoice = e.path[0].id;
         //console.log(playerChoice)
         computerChoice = getComputerChoice()
@@ -91,32 +106,60 @@
         scoreTextPlayer.textContent = 'Player Score: ' + playerScore + "⠀⠀";
         scoreTextComputer.textContent = 'Computer Score: ' + computerScore;
         scoreTextResult.textContent = roundResult
+        console.log(roundResult)
 
-        if (playerScore === 3){
-            result = 'player'
+        /*SOUNDS-------------------------------------------------------------*/
+        if(roundResult === "Player won round"){
+            if (playerChoice === 'Rock') {
+                soundRock.play();
+            }
+
+            if (playerChoice === 'Paper') {
+                soundPaper.play();
+            }
+
+            if (playerChoice === 'Scissors') {
+                soundScissors.play();
+            }
+
         }
 
-        if (computerScore === 3){
+        if(roundResult === "Computer won round"){
+            soundRoundLost.play()
+        }
+
+        if (roundResult === "Tie round") {
+            soundRoundTie.play();
+        }
+        /*SOUNDS-------------------------------------------------------------*/
+
+        if (playerScore === 5){
+            result = 'player'
+            document.querySelector('html').style.backgroundColor = "rgb(204, 255, 204)"
+
+            // SOUND
+            setTimeout(function(){
+                soundGameWon.play();
+            }, 500)
+            // SOUND
+
+        }
+
+        if (computerScore === 5){
             result = 'computer'
+            document.querySelector('html').style.backgroundColor = "rgb(255, 102, 102)"
+
+            // SOUND
+            setTimeout(function(){
+                soundGameLost.play();
+            }, 500)
+            // SOUND
         }
 
         if (result === 'player' || result === 'computer'){
             scoreTextResult.textContent = result + ' won game!!'
             result = 'end'
-            //console.log(result)
-            // let resultText = document.createElement('h1')
-            // //GIVE AN id TO resultText
-            // let resultText2 = document.createTextNode(result + ' won!')
-            // resultText.appendChild(resultText2)
-            //scores.appendChild(resultText) This is appending multiples elements and don't know why.
-            //scoreTextComputer.appendChild(resultText)
-            // if(j === true){
-            //     scores.appendChild(resultText)
-            //     j = false
-            // }
-
         }
-
     }
 
 

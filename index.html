@@ -17,7 +17,7 @@
     <header>
         <div class="container" id="titlesContainer">
             <h1 class="title">Rock-Paper-Scissors</h1>
-            <h3 class="instructions">Win three rounds vs computer to save the world</h3>
+            <h3 class="instructions">Win five rounds vs computer to save the world</h3>
         </div>
     </header>
 
@@ -36,11 +36,19 @@
     </div>
 
     <div class="container" id="scoresContainer">
-        <p class="scoreText" id="ComputerChoiceText">Computer chose:⠀</p>
+        <p class="scoreText" id="ComputerChoiceText">Computer chose:⠀?</p>
         <span class="scoreText" id="scoreTextPlayer">Player Score: 0⠀⠀</span>
         <span class="scoreText" id="scoreTextComputer">Computer Score: 0</span>
         <p class="scoreText" id="scoreTextResult">⠀</p>
     </div>
+
+    <audio id="audioRock" src="/sounds/soundRock.wav"></audio>
+    <audio id="audioPaper" src="/sounds/soundPaper.wav"></audio>
+    <audio id="audioScissors" src="/sounds/soundScissors.wav"></audio>
+    <audio id="audioRoundLost" src="/sounds/soundRoundLost.wav"></audio>
+    <audio id="audioGameLost" src="/sounds/soundGameLost.wav"></audio>
+    <audio id="audioGameWon" src="/sounds/SoundGameWon.wav"></audio>
+    <audio id="audioRoundTie" src="/sounds/soundRoundTie.wav"></audio>
 
     <script src="js-file-DOM-2.js"></script>
 </body>
