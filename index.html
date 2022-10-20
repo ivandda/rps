@@ -1,108 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--    FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet">
+    <!--    FONTS-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles2.css">
     <title>R-P-S</title>
 </head>
 <body>
-   
-   <script>
-        // Function to get computer choise:
 
-        function getComputerChoise(){
-            let posibleChoise = [
-                "Rock",
-                "Paper",
-                "Scissors"
-            ]
+    <header>
+        <div class="container" id="titlesContainer">
+            <h1 class="title">Rock-Paper-Scissors</h1>
+            <h3 class="instructions">Win three rounds vs computer to save the world</h3>
+        </div>
+    </header>
 
-            let computerChoise = posibleChoise[Math.floor(Math.random()*posibleChoise.length)];
-            return computerChoise;
-        }
+    <div class="container" id="buttonContainer">
+<!--        <div class="container" id="buttons">-->
+            <button>
+                <img src="images/rock.png"  id="Rock">
+            </button>
+            <button>
+                <img src="images/paper.png"  id="Paper">
+            </button>
+            <button>
+                <img src="images/scissors.png" id="Scissors">
+            </button>
+<!--        </div>-->
+    </div>
 
+    <div class="container" id="scoresContainer">
+        <p class="scoreText" id="ComputerChoiceText">Computer chose:⠀</p>
+        <span class="scoreText" id="scoreTextPlayer">Player Score: 0⠀⠀</span>
+        <span class="scoreText" id="scoreTextComputer">Computer Score: 0</span>
+        <p class="scoreText" id="scoreTextResult">⠀</p>
+    </div>
 
-        // Function to get players choise:
-
-        function capitalizeFirstLetter(string){
-            let capitalized = string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-            return capitalized;
-        }
-
-       // Function to play one round:
-
-        function playRound(computerChoise, playerChoise){
-
-            if(computerChoise === playerChoise){
-                roundResult = "Tie round";
-            }
-
-            if(
-                (computerChoise === "Rock" && playerChoise == "Scissors") || 
-                (computerChoise === "Scissors" && playerChoise == "Paper") ||
-                (computerChoise === "Paper" && playerChoise == "Rock")
-                ){
-                    computerScore ++;
-                    roundResult = "Computer won round";
-                }
-
-            if(
-                (playerChoise === "Rock" && computerChoise == "Scissors") || 
-                (playerChoise === "Scissors" && computerChoise == "Paper") ||
-                (playerChoise === "Paper" && computerChoise == "Rock")
-                ){
-                    playerScore ++;
-                    roundResult = "Player won round";
-                }
-
-                alert(roundResult);
-        }
-
-        
-        // Play five rounds o until 3 rounds won:
-
-        let computerScore = 0;
-        let playerScore = 0;
-        let roundResult ="";
-
-
-        for (let i = 0; i < 5; i++) {
-            let computerChoise = getComputerChoise();
-            alert(computerChoise);
-
-            let playerChoise = prompt("choose Rock, Paper or Scissors");
-            playerChoise = capitalizeFirstLetter(playerChoise);
-
-            playRound(computerChoise, playerChoise);
-
-            console.log(roundResult);
-            console.log(computerScore);
-            console.log(playerScore);
-
-            if (playerScore === 3){
-                i = 100;
-                alert("player won");
-
-            }
-            
-            if (computerScore === 3){
-                i = 100;
-                alert("Computer won");
-            }
-
-        }
-
-        if (playerScore > computerScore){
-                alert("player won");
-
-            }
-            
-        if (computerScore > playerScore){
-                alert("Computer won");
-            }
-
-
-    </script>
+    <script src="js-file-DOM-2.js"></script>
 </body>
 </html>

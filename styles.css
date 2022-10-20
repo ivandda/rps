@@ -1,0 +1,115 @@
+
+html{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+body{
+    /*background: url(images/background.jpg);*/
+    /*background-size: auto;*/
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+    border: 1px solid yellow;
+    height:100vh
+
+}
+
+.container{
+    display: flex;
+    flex: auto;
+    align-content: center;
+    justify-content: center;
+    /*border: 3px solid blue;*/
+}
+
+#titles{
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+}
+
+.title{
+    height: 20%;
+    flex: auto;
+    align-content: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 5px;
+
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 85px;
+
+}
+
+.instructions{
+    flex: auto;
+    align-content: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 5px;
+
+}
+
+#buttons{
+    flex: auto;
+    margin: 5px;
+    justify-content: center;
+    align-content: center;
+    border: 2px solid lightgray;
+    max-width: 80%;
+    height: 60%;
+    display: flex;
+}
+button{
+    /*flex: initial;*/
+    /*min-width: 100px;*/
+    /*min-height: 100px;*/
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+
+    flex: auto;
+    height: 100px;
+    width: 100px;
+
+}
+
+#Rock{
+    background-image: url("/images/rock.png");
+    background-size: contain;
+}
+
+#Paper{
+    background-image: url("/images/paper.png");
+    background-size: contain;
+}
+
+#Scissors{
+    background-image: url("/images/scissors.png");
+    background-size: contain;
+}
+
+
+#scores{
+    flex: initial;
+    flex-direction: column;
+    text-align: center;
+    height: 20%;
+}
+
+.scoreText{
+    flex: auto;
+    align-content: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 5px;
+}
+

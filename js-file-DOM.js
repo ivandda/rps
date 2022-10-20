@@ -11,25 +11,13 @@
 
     let button = document.querySelectorAll('button')
     let playerChoice = ""
+
     let computerChoice = ''
-    let roundResult = ''
-    let computerScore = 0
-    let playerScore = 0
-    let result = 'tie'
-    let rounds = 0
-    let j = true
-
-    let scoreTextPlayer = document.querySelector('#scoreTextPlayer')
-    let scoreTextComputer = document.querySelector('#scoreTextComputer')
-    let scoreTextResult = document.querySelector('#scoreTextResult')
-    let ComputerChoiceText = document.querySelector('#ComputerChoiceText')
-    let scores = document.querySelector('#scores')
-
 
     function getComputerChoice(){
         let possibleChoice = ["Rock", "Paper", "Scissors"]
 
-        computerChoice = possibleChoice[Math.floor(Math.random()*possibleChoice.length)];
+        let computerChoice = possibleChoice[Math.floor(Math.random()*possibleChoice.length)];
         return computerChoice;
     }
 
@@ -37,14 +25,24 @@
         button[i].addEventListener('click',test)
     }
 
+    function test(e){
+        //console.log(e)
+        playerChoice = e.target.textContent
+        computerChoice = getComputerChoice()
+        console.log("Player choice = " + playerChoice)
+        console.log("Computer choice = " + computerChoice)
+
+    }
 
 
 
-    function playRound(){
 
-        if(result === 'end'){
-            return console.log('Game already ended bro...')
-        }
+
+
+
+
+
+    function playRound(computerChoice, playerChoice){
 
         if(computerChoice === playerChoice){
             roundResult = "Tie round";
@@ -68,59 +66,12 @@
             roundResult = "Player won round";
         }
 
-        rounds++
-        // console.log(roundResult);
-        // console.log(playerScore);
-        // console.log(computerScore);
-        // console.log('----------------------------------------------------------------');
+        alert(roundResult);
     }
 
-
-    function test(e){
-        console.log(e)
-        console.log(e.path[0].id)
-        playerChoice = e.path[0].id;
-        //console.log(playerChoice)
-        computerChoice = getComputerChoice()
-        // console.log("Player choice = " + playerChoice)
-        // console.log("Computer choice = " + computerChoice)
-
-        ComputerChoiceText.textContent = "Computer chose: " + computerChoice
-        playRound()
-        scoreTextPlayer.textContent = 'Player Score: ' + playerScore + "⠀⠀";
-        scoreTextComputer.textContent = 'Computer Score: ' + computerScore;
-
-        if (playerScore === 3){
-            result = 'player'
-        }
-
-        if (computerScore === 3){
-            result = 'computer'
-        }
-
-        if (result === 'player' || result === 'computer'){
-            scoreTextResult.textContent = result + ' won!'
-            result = 'end'
-            //console.log(result)
-            // let resultText = document.createElement('h1')
-            // //GIVE AN id TO resultText
-            // let resultText2 = document.createTextNode(result + ' won!')
-            // resultText.appendChild(resultText2)
-            //scores.appendChild(resultText) This is appending multiples elements and don't know why.
-            //scoreTextComputer.appendChild(resultText)
-            // if(j === true){
-            //     scores.appendChild(resultText)
-            //     j = false
-            // }
-
-        }
+    for (let i = 0; i < 5; i++) {
 
     }
-
-
-
-
-
 
     // Play five rounds o until 3 rounds won:
 
